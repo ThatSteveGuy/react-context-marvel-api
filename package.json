@@ -1,11 +1,17 @@
 {
-  "name": "user-perf",
+  "name": "react-context-marvel-api",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "amplitude-js": "^4.5.2",
+    "crypto-js": "^3.1.9-1",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-loading-skeleton": "^1.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-spinners": "^0.4.8"
   },
   "scripts": {
     "start": "react-scripts start",
