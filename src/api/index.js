@@ -16,9 +16,7 @@ const getUrl = (url) => {
   }
   const timestamp = Date.now();
   const hash = getHash(timestamp + privateKey + publicKey);
-  const builtUrl = `${url}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
-
-  return builtUrl;
+  return `${url}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
 }
 
 const fetchCharacters = async (startsWith) => {
@@ -43,7 +41,6 @@ const fetchCharacters = async (startsWith) => {
 
 const fetchCharacter = async (characterId) => {
   try {
-    console.log('CHARID', characterId);
     const response = await fetch(getUrl(characterAPI + characterId));
     const json = await response.json();
 
@@ -51,8 +48,8 @@ const fetchCharacter = async (characterId) => {
       console.log('[DEBUG CALL', fetch(getUrl(characterListAPI)));
       throw Error('Network Request Failed:', response.statusText);
     }
-
-    return json.data.results;
+console.log('[API]', json.data);
+    return json.data;
   } catch(err) {
     console.log('[DEBUG CALL', fetch(getUrl(characterListAPI)));
     return err.message;

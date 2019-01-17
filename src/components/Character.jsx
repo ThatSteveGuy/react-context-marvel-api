@@ -5,27 +5,28 @@ Character.propTypes = {
   characterId: PropTypes.string.isRequired
 };
 
-function Character(characterId, data) {
+function Character(data) {
 
   // todo: extract story
   console.log('CHAR', data);
+  const character = data.data;
 
   return(
     <article>
       <h1>
-        {data.name}
+        {character.name}
       </h1>
       <p>
-        {data.description}
+        {character.description}
       </p>
       <div>
-        <h2>Stories with {data.name} in them</h2>
+        <h2>Stories with {character.name} in them</h2>
         <ul>
-          {data.stories && data.stories.map((story) => {
+          {character.stories && character.stories.items.map((story) => {
             return (
               <li>
                 <div>
-
+                  {story.name}
                 </div>
               </li>
             )

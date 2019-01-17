@@ -13,7 +13,6 @@ function CharacterPicker(props) {
   const getCharacters = async () => {
     const search = charState.searchTerm;
     const data = await fetchCharacters(search);
-    console.log(props.location);
     setState({...charState, characters: data});
   }
 
@@ -29,7 +28,6 @@ function CharacterPicker(props) {
 
   const viewDetail = (id) => {
     console.log(`${id} clicked`);
-    //props.history.push(`/character/${id}`);
   }
 
  // TODO: Get Next 20 affordance

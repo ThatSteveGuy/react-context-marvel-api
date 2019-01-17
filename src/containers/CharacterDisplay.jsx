@@ -3,7 +3,7 @@ import Character from '../components/Character';
 import {fetchCharacter} from '../api';
 
 function CharacterDisplay(props) {
-  const [charState, setState] = useState({results:[]});
+  const [charState, setState] = useState({results:[{id:-1}]});
   const id = props.match.params.id;
 
   // IIFE
@@ -12,7 +12,9 @@ function CharacterDisplay(props) {
   const getCharacter = async () => {
     const data = await fetchCharacter(id);
 
-    setState({...charState, character: data});
+    console.log('[DATA]', data.results);
+    console.log('[PRE]', charState);
+    setState({results: data.results});
     console.log('[STATE]', charState);
   }
 
@@ -20,14 +22,14 @@ function CharacterDisplay(props) {
   // which is also when 
   useEffect(() => {
     getCharacter();
-  }, []);
+  }, [charState.results[0].id]);
 
   return(
     <section>
-      <Character
+      {<Character
         id={id}
         data={charState.results[0]}
-      />
+      />}
     </section>
   )
 }
